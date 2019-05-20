@@ -8,7 +8,7 @@ With this litte tool its possible to format a given MAC address into three diffe
 
 If you're a sysadmin you know that necessary to use a MAC address in different scenarios.
 For Windows DCHP reservations you have to add it without colon or hyphens. For HP Switches (the old one)
-you have to configure it with hyphens and so on. So you can use this tool tormat it, with one click you copy it in your clipboard and than you can paste it anywhere.
+you have to configure it with hyphens and so on. So you can use this tool format it, with one click you copy it in your clipboard and than you can paste it anywhere.
 
 ## Built with
 
