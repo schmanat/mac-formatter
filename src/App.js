@@ -3,7 +3,6 @@ import { Layout, Row, Col, Menu, Icon } from 'antd';
 import MacInput from './components/MacInput';
 import MacSummery from './components/MacSummery';
 import Logo from './logo.svg';
-import './App.css';
 
 const { Content, Footer, Header } = Layout;
 
@@ -29,14 +28,20 @@ const App = () => {
     const [macAddress, setMacAddress] = useState('');
     return (
         <React.Fragment>
-            <Layout>
+            <Layout style={{ height: '100vh' }}>
                 <Header
                     style={{
                         background: '#fff',
                         borderBottom: '1px solid #e8e8e8'
                     }}
                 >
-                    <img src={Logo} style={{ height: '50px' }} />
+                    <a href='/' title='MacFormatter'>
+                        <img
+                            src={Logo}
+                            style={{ height: '50px' }}
+                            alt='MacFormatter Logo'
+                        />
+                    </a>
                     <Menu
                         theme='light'
                         mode='horizontal'
@@ -46,13 +51,9 @@ const App = () => {
                         }}
                     >
                         <Menu.Item>
-                            <Icon type='question-circle' />
-                            About
-                        </Menu.Item>
-                        <Menu.Item>
                             <a
                                 href='https://github.com/schmanat'
-                                title='macFormatter Repositority on Github'
+                                title='MacFormatter Repositority on Github'
                             >
                                 <Icon type='github' />
                                 Github
@@ -60,15 +61,13 @@ const App = () => {
                         </Menu.Item>
                     </Menu>
                 </Header>
-                <Content className='content'>
+                <Content style={{ padding: '24px 50px' }}>
                     <Row gutter={16}>
                         <Col span={6} offset={9} style={{ padding: '4rem 0' }}>
                             <MacInput
                                 onInput={input =>
                                     setMacAddress(
-                                        formatInput(
-                                            input.target.value.toUpperCase()
-                                        )
+                                        formatInput(input.target.value)
                                     )
                                 }
                                 maxLength={17}
@@ -77,7 +76,30 @@ const App = () => {
                         </Col>
                     </Row>
                 </Content>
-                <Footer>© schman.rocks - {new Date().getFullYear()}</Footer>
+                <Footer style={{ textAlign: 'center' }}>
+                    © schman.rocks - {new Date().getFullYear()}
+                    <div>
+                        Icons made by{' '}
+                        <a
+                            href='https://www.freepik.com/?__hstc=57440181.12f613a98465dba6eb6ed5374fdb0e7a.1558076156676.1558076156676.1558689960531.2&__hssc=57440181.2.1558689960531&__hsfp=3598533524'
+                            title='Freepik'
+                        >
+                            Freepik
+                        </a>{' '}
+                        from{' '}
+                        <a href='https://www.flaticon.com/' title='Flaticon'>
+                            www.flaticon.com
+                        </a>{' '}
+                        is licensed by{' '}
+                        <a
+                            href='http://creativecommons.org/licenses/by/3.0/'
+                            title='Creative Commons BY 3.0'
+                            target='_blank'
+                        >
+                            CC 3.0 BY
+                        </a>
+                    </div>
+                </Footer>
             </Layout>
         </React.Fragment>
     );
